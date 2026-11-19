@@ -1,0 +1,14 @@
+[Unit]
+Description=Ludus unattended install (first boot)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/opt/ludus-install/auto-install.sh
+RemainAfterExit=yes
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
